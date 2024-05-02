@@ -1,0 +1,14 @@
+.vdo {
+width: 50%;
+height: auto;
+display: block;
+margin: 0 auto;
+}
+.text-content {
+  transform: translate(-50%, -50%);
+}
+.vdobtn {
+  transform: translate(-50%, -50%);
+  background-color: red;
+  color:white;
+}

@@ -1,0 +1,38 @@
+.kasai-popular-section {
+  position: relative;
+}
+
+.kasai-popular-section .container {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to next line */
+}
+
+.kasai-popular-section ul.collection-list {
+  list-style: none; /* Remove default list-style (bullets) */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to next line */
+}
+
+.kasai-popular-section .collection-item {
+  width: calc(25% - 20px);
+  list-style: none;
+  margin-right: 20px; /* Add margin between items */
+  margin-bottom: 20px; /* Add margin bottom to create space between rows */
+}
+
+/* Adjust margin for last item in each row */
+.kasai-popular-section .collection-item:nth-child(2n) {
+  margin-right: 0; /* Remove margin for the last item in each row */
+}
+
+.view-all-button {
+  position: absolute; /* Set absolute positioning for the button */
+  top: 10px; /* Adjust top position */
+  right: 10px; /* Adjust right position */
+  background-color: #f0f0f0; /* Button background color */
+  padding: 10px 20px; /* Button padding */
+  border-radius: 5px; /* Button border radius */
+  text-decoration: none; /* Remove default link underline */
+}

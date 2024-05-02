@@ -1,0 +1,53 @@
+{{ 'twoimage.css' | asset_url | stylesheet_tag }}
+<div class="two-images-with-text-section">
+  <div class="image-container">
+    <img class="image1" src="{{ section.settings.image1_url }}">
+    <img class="image2" src="{{ section.settings.image2_url }}">
+  </div>
+  <div class="text-content1">
+    <h2><b>{{ section.settings.text1_content }}</b></h2>
+    <p><b>{{ section.settings.text2_content }}</b></p>
+    <button class="button">{{ section.settings.button_label }}</button>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Two Images with Text",
+  "settings": [
+    {
+      "type": "url",
+      "id": "image1_url",
+      "label": "Image 1 URL"
+    },
+    {
+      "type": "url",
+      "id": "image2_url",
+      "label": "Image 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "text1_content",
+      "label": "Text Content 1",
+      "default": "Text content for image 1"
+    },
+    {
+      "type": "text",
+      "id": "text2_content",
+      "label": "Text Content 2",
+      "default": "Text content for image 2"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Button"
+    }
+  ],
+    "presets": [
+    {
+      "name": "Two images with text",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

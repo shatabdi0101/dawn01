@@ -1,0 +1,259 @@
+<style>
+  .dawn-product-slider {
+    max-width: 1600px;
+    margin: auto;
+    padding: 0 20px;
+    padding-bottom: 32px;
+    margin-top: 55px;
+  }
+  .dawn-product-slider img {
+      width: 100%;
+  }
+  .dawn-product-slider .carousel-cell .title {
+    font-weight: bold;
+}
+  .dawn-product-slider .carousel-cell {
+    background: #fff;
+    border-radius: 16px;
+    margin: auto;
+    padding: 18px;
+    margin: 12px;
+    width: calc(32% - 10px);
+    text-align: center;
+  }
+  .product-btn {
+      width: 100%;
+  }
+  .dawn-product-slider a {
+    color: black;
+   	text-decoration: none; 
+  }
+  .dawn-product-slider a .title:hover {
+   	text-decoration: underline; 
+  }
+  .dawn-product-slider a .title, .dawn-product-slider a .price {
+   	margin: 0px;
+  }
+  .dawn-product-slider .flickity-button.flickity-prev-next-button.previous, 
+  .dawn-product-slider .flickity-button.flickity-prev-next-button.next {
+  	background: black;
+    color: white;
+  }
+  .dawn-product-slider:focus-visible, .dawn-product-slider .carousel:focus-visible {
+   	outline: unset;
+    outline-offset: unset;
+    box-shadow: unset; 
+  }
+  @media only screen and ( max-width: 767px ) {
+    .dawn-product-slider .carousel-cell {
+      width: calc(50% - 10px);
+    }
+  }
+  @media only screen and ( max-width: 479px ) {
+    .dawn-product-slider .carousel-cell {
+      width: calc(100% - 10px);
+    }
+  }
+  .sliderimg{
+    height: 250px;
+  }
+</style>
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<!-- JavaScript -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<div class="collection page-width">
+  <div class="title-wrapper-with-link">
+	<h2 class="title{% if section.settings.title == blank %} title--no-heading{% endif %}">
+      {{ section.settings.title | escape }}
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          {% if block.type == 'custom_heading' %}
+            <h3>{{ block.settings.custom_heading_text }}</h3>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </h2>
+  </div>
+</div>
+<div class="dawn-product-slider">
+   <div class="carousel">
+     {% for block in section.blocks %}
+     {% if block.type == 'custom_product' %}
+       <div class="carousel-cell">  
+         <a href="{{ block.settings.custom_product_url }}">
+          {% if block.settings.cus_product != blank %}
+            <img class="sliderimg" src="{{ block.settings.cus_product.featured_image | img_url: 'master' }}" alt="{{ block.settings.cus_product.title }}" />
+            {% if block.settings.custom_product_title != blank %}
+              <p class="title">{{ block.settings.custom_product_title }}</p>
+            {% else %}
+              <p class="title">{{ block.settings.cus_product.title }}</p>
+            {% endif %}
+            {% if block.settings.custom_product_price != blank %}
+              <p class="title">{{ block.settings.custom_product_price }}</p>
+            {% else %}
+              <p class="price">{{ block.settings.cus_product.price | money }}</p>
+            {% endif %}  
+          {% else %}
+            <img class="sliderimg" src="{{ block.settings.custom_product_url }}" alt="Product Image" />
+            <p class="title">{{ block.settings.custom_product_title }}</p>
+            <p class="price">{{ block.settings.custom_product_price }}</p>
+          {% endif %}
+         </a>
+      </div>
+    {% endif %}
+     {% endfor %}
+   </div>
+      
+</div>
+
+{% assign nav_range = section.settings.navigation_amount %}
+{% assign nav_range = section.settings.navigation_amount %}
+{% style %}
+	@media only screen and ( min-width: 1201px ) {
+		{% if nav_range == 2 %}
+        .dawn-product-slider .carousel-cell {
+            width: calc(49% - 10px);
+        }
+		{% elsif nav_range == 3 %}
+        .dawn-product-slider .carousel-cell {
+          width: calc(32% - 10px);
+        }
+		{% elsif nav_range == 4 %}
+        .dawn-product-slider .carousel-cell {
+          width: calc(28% -10px);
+         }
+		{% endif %}
+    }
+    .flickity-page-dots .dot {
+    	background: {{ section.settings.navigation_color }};
+    }
+    .flickity-button-icon {
+    	color: {{ section.settings.navigation_color }};
+    }
+{% endstyle %}
+<script>
+   var autoplayEnabled = {{ section.settings.autoplay_enabled | default: 'false' }};
+   var loopEnabled = {{ section.settings.loop_enabled | default: 'false' }};
+     
+   var elem = document.querySelector('.dawn-product-slider .carousel');
+   var flkty = new Flickity( elem, {
+     contain: true,
+     imagesLoaded: true,
+     wrapAround: loopEnabled,
+     autoPlay: autoplayEnabled,
+     pageDots: false,
+   });
+   {% if request.design_mode %}
+   document.addEventListener("shopify:section:load", function(event) {
+     var elem = document.querySelector('.dawn-product-slider .carousel');
+     var flkty = new Flickity( elem, {
+       contain: true,
+       imagesLoaded: true,
+       wrapAround: loopEnabled,
+       autoPlay: autoplayEnabled,
+       pageDots: false,
+     });
+   });
+   {% endif %}
+</script>
+{% schema %}
+{
+  "name": "Products slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Desktop Setting"
+    },
+    {
+      "type": "range",
+      "id": "navigation_amount",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "Change the number of cards in view"
+    },
+    {
+      "type": "color",
+      "id": "navigation_color",
+      "label": "Change color of the pagination|navigation|scrollbar"
+    },
+	{
+      "type": "text",
+      "id": "title",
+      "default": "Products slider",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_enabled",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "loop_enabled",
+      "label": "Enable looping",
+      "default": false
+    }
+  ] ,
+  	"blocks": [
+	{
+        "type": "card",
+        "name": "Product card",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product_item",
+            "label": "Choose the product you want to displayed"
+          }
+    	]
+	},
+    {
+      "type": "custom_heading",
+      "name": "Custom Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom_heading_text",
+          "label": "Custom Heading Text"
+        }
+      ]
+    },
+    {
+    "type": "custom_product",
+    "name": "Custom Product",
+    "settings":  [
+        {
+          "type": "url",
+          "id": "custom_product_url",
+          "label": "Custom Product URL"
+        },
+       {
+          "type": "text",
+          "id": "custom_product_title",
+          "label": "Custom Product Title"
+        },
+       {
+          "type": "text",
+          "id": "custom_product_price",
+          "label": "Custom Product Price"
+        },
+        {
+          "type": "product",
+          "id": "cus_product",
+          "label": "Product"
+        }
+      ]
+    }
+  ] ,
+  "presets": [
+    {
+      "name": "Product slider",
+      "category":"Custom"
+    }
+  ]
+}
+{% endschema %}

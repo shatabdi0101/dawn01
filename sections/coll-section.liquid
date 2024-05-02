@@ -1,0 +1,110 @@
+{{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+<div class="collapsible-section">
+  <div class="collapsible-wrapper">
+    <div class="collapsible-grid">
+      <div class="collapsible-header" style="text-align: {{ section.settings.heading_alignment }};">
+        {% if section.settings.heading != blank %}
+          <h2 class="collapsible-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+      </div>
+      <div class="collapsible-content">
+          {% for block in section.blocks %}
+            <div class="collapsible-block">
+              <details>
+                <summary>
+                  <h3 class="block-title">{{ block.settings.heading | default: 'Block Title' }}</h3>
+                </summary>
+                <div class="block-content">{{ block.settings.content | raw}}</div>
+              </details>
+            </div>
+          {% endfor %}
+      </div>
+    </div>
+    {% if section.settings.image != blank %}
+    <div class="collapsible-image" style="text-align: {{ section.settings.image_alignment }};">
+      <div class="collapsible-media">
+        <div class="collapsible-media-wrapper-custom">
+          {{ section.settings.image | img_url: 'medium' | img_tag: 'Collapsible Image'  }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Collapsible Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Enter section heading here"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Select an image for the section (optional)"
+    },
+    {
+      "type": "select",
+      "id": "image_alignment",
+      "label": "Image Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collapsible_block",
+      "name": "Collapsible Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Block Heading",
+          "default": "Enter block heading here"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Block Content",
+          "default": "<p>Enter block content here</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collapsible Section",
+      "blocks": [
+        {
+          "type": "collapsible_block"
+        },
+        {
+          "type": "collapsible_block"
+        },
+        {
+          "type": "collapsible_block"
+        }
+      ]
+    }
+  ]
+}
+  {% endschema %}

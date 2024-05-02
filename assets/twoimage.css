@@ -1,0 +1,47 @@
+.two-images-with-text-section {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Ensure space between images and text */
+  align-items: center; /* Align items vertically */
+  width: 100%;
+  padding: 20px;
+}
+
+.image-container {
+  display: flex; /* Use flexbox to arrange images side by side */
+  align-items: center; /* Align items vertically */
+}
+
+.image1, .image2 {
+  width: 45%;
+  max-height: 40%;
+}
+.image3{
+  max-height: 40%;
+}
+.image4{
+  max-height: 350px;
+}
+.image5{
+  max-height: 250px;
+}
+.image6{
+  max-height: 150px;
+}
+.text-content1 {
+  margin-left: 20px;
+  color: black;
+}
+
+.button {
+  display: block;
+  margin: 40px;
+  left: -5%;
+}
+.button1 {
+  display: block; 
+  margin: 40px;
+  position: relative;
+  left: -5%;
+  background-color: red;
+  color: white;
+}

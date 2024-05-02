@@ -1,0 +1,53 @@
+{{ 'twoimage.css' | asset_url | stylesheet_tag }}
+<div class="two-images-with-text-section">
+  <div class="image-container">
+    <img class="image3" src="{{ section.settings.image1_url }}">
+    <img class="image2" src="{{ section.settings.image2_url }}">
+  </div>
+  <div class="text-content1">
+    <h2><b>{{ section.settings.heading1_content }}</b></h2>
+    <p><b>{{ section.settings.text1_content }}</b></p>
+    <button class="button1">{{ section.settings.button_label }}</button>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Made in Britain",
+  "settings": [
+    {
+      "type": "url",
+      "id": "image1_url",
+      "label": "Image 1 URL"
+    },
+    {
+      "type": "url",
+      "id": "image2_url",
+      "label": "Image 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "heading1_content",
+      "label": "Heading Content 1",
+      "default": "Heading content"
+    },
+    {
+      "type": "text",
+      "id": "text1_content",
+      "label": "Text Content ",
+      "default": "Text content"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Button"
+    }
+  ],
+   "presets": [
+    {
+      "name": "Made in Britain",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

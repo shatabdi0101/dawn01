@@ -1,0 +1,54 @@
+{{ 'twoimage.css' | asset_url | stylesheet_tag }}
+<div class="two-images-with-text-section">
+  <div class="text-content1">
+    <h3><b>{{ section.settings.heading1_content }}</b></h3>
+    <h1><b>{{ section.settings.heading2_content }}</b></h1>
+    <p><b>{{ section.settings.text1_content }}</b></p>
+    <button class="button">{{ section.settings.button_label }}</button>
+  </div>
+  <div class="image-container">
+    <img class="image3" src="{{ section.settings.image1_url }}">
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Tommy Banks",
+  "settings": [
+    {
+      "type": "url",
+      "id": "image1_url",
+      "label": "Image 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "text1_content",
+      "label": "Text Content 1",
+      "default": "Text content for image 1"
+    },
+    {
+      "type": "text",
+      "id": "heading1_content",
+      "label": "Heading 1",
+      "default": "Heading 1"
+    },
+    {
+      "type": "text",
+      "id": "heading2_content",
+      "label": "Heading 2",
+      "default": "Heading 2"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tommy Banks",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

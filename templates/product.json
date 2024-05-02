@@ -1,0 +1,193 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>Best Seller<\/strong>",
+            "text_style": "body"
+          }
+        },
+        "wishlist_qFU7ix": {
+          "type": "wishlist",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description_FdgGkz": {
+          "type": "description",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "collapsible_tab_GwPWqw": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "icon": "none",
+            "content": "<ul><li>Medium Grill Size for 4-8 people<\/li><li>Brushed British made Stainless Steel<\/li><li>1 year Parts and Labour Warranty<\/li><\/ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_MawbQQ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Download User Guide",
+            "icon": "none",
+            "content": "<p>PDF<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "wishlist_qFU7ix",
+        "title",
+        "price",
+        "description_FdgGkz",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "collapsible_tab_GwPWqw",
+        "collapsible_tab_MawbQQ"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "coll_section_riUneC": {
+      "type": "coll-section",
+      "blocks": {
+        "collapsible_block_HpqR4W": {
+          "type": "collapsible_block",
+          "settings": {
+            "heading": "Product Description",
+            "content": "<ul><li>sgg<\/li><li>sgsg<\/li><li>sgsg<\/li><li>sgsg<\/li><\/ul>"
+          }
+        },
+        "collapsible_block_FB7fpr": {
+          "type": "collapsible_block",
+          "settings": {
+            "heading": "Product Specifiaction",
+            "content": "<ul><li>afsdfsd<\/li><li>sfsd<\/li><li>sfsdf<\/li><li>sfsf<\/li><\/ul>"
+          }
+        },
+        "collapsible_block_kyD9mm": {
+          "type": "collapsible_block",
+          "settings": {
+            "heading": "Overseas Delivery Options",
+            "content": "<ul><li>sbfghfdh<\/li><li>dgd<\/li><li>dgdg<\/li><li>dgdgdf<\/li><\/ul>"
+          }
+        },
+        "collapsible_block_Gb3Xi7": {
+          "type": "collapsible_block",
+          "settings": {
+            "heading": "UK Delivery Options",
+            "content": "<ul><li>fhfhjg<\/li><li>jgkyuhkh<\/li><li>hjkh<\/li><li>kljlk<\/li><li>hjkh<\/li><\/ul>"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_block_HpqR4W",
+        "collapsible_block_FB7fpr",
+        "collapsible_block_kyD9mm",
+        "collapsible_block_Gb3Xi7"
+      ],
+      "settings": {
+        "heading": "Nano Kasai Conro Grill with Stainless Steel Frame",
+        "heading_alignment": "left",
+        "image": "shopify:\/\/shop_images\/Rectangle28_37e68233-8872-44a8-8a58-3023b9542879.png",
+        "image_alignment": "center"
+      }
+    },
+    "product_video_with_text_HDDJNY": {
+      "type": "product-video-with-text",
+      "settings": {
+        "url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/9b82ce479674467d825eae1aa27f01de.mp4",
+        "text_content": "",
+        "additional_text": "",
+        "button_label": ""
+      }
+    },
+    "kasai_popular_R7Kth8": {
+      "type": "kasai-popular",
+      "settings": {
+        "kasai_text": "Related Products"
+      }
+    },
+    "three_images_with_text_emg7Bj": {
+      "type": "three-images-with-text",
+      "settings": {
+        "image1_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0694\/6186\/8770\/files\/Rectangle_27.png?v=1712840238",
+        "image2_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0694\/6186\/8770\/files\/Rectangle_28.png?v=1712839409",
+        "image3_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0694\/6186\/8770\/files\/Rectangle_24.png?v=1713187742",
+        "text1_content": "Customize Your British-made Kasai Grills",
+        "text2_content": "Kasai Konro charcoal grills are inspired by world famous Japanese design. They’re a traditional heat source used to make delicious meats, fish, and vegetables. Enjoyed by the best restaurant chefs and home users, Kasai is more than a charcoal grill. It’s a versatile bit of kit that can hold anything from kebabs, to yakitori skewers, and even hold your pans for you with interchangeable racks.",
+        "button_label": "BUY THE KASAI"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "coll_section_riUneC",
+    "product_video_with_text_HDDJNY",
+    "kasai_popular_R7Kth8",
+    "three_images_with_text_emg7Bj"
+  ]
+}

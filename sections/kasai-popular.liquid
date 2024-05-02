@@ -1,0 +1,41 @@
+{{ 'kasaipopular.css' | asset_url | stylesheet_tag }}
+<div class="kasai-popular-section">
+  <div class="text-content_kasai">
+    <h2><b>{{ section.settings.kasai_text }}</b></h2>
+  </div>
+  <ul class="collection-list">
+    {% for product in collections['kasai-popular'].products %}
+      <li class="collection-item">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.description }}</p>
+          <p>{{ product.price | money }}</p>
+        </a>
+       <form action="/cart/add" method="post">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="/collections/kasai-popular" class="view-all-button">View All</a>
+</div>
+{% schema %}
+{
+  "name": "Kasai Polpular",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kasai_text",
+      "label": "Text Content 1",
+      "default": "Text content "
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kasai Polpular"
+    }
+  ]
+}
+{% endschema %}

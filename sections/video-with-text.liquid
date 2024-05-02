@@ -1,0 +1,46 @@
+{{ 'vdo.css' | asset_url | stylesheet_tag }}
+<div class="video-with-text-section">
+  <video class="vdo" loop="true" muted="true" playsinline="true" autoplay="true" src="{{ section.settings.url }}"></video>
+  <div class="text-content">
+    <h2><b>{{ section.settings.text_content }}</b></h2>
+    <p><b>{{ section.settings.additional_text }}</b></p>
+  </div>
+  <button class="vdobtn">{{ section.settings.button_label }}</button>
+</div>
+{% schema %}
+{
+  "name": "Video with Text",
+  "settings": [
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Video (MP4 format)"
+    },
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Text Content",
+      "default": "Enter your text here"
+    },
+    {
+      "type": "text",
+      "id": "additional_text",
+      "label": "Additional Text",
+      "default": "Additional text here"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Button"
+    }
+  ],
+  "presets": [
+    {
+    "name": "Video with Text",
+    "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}
+
